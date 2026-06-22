@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#14201B; --ink-soft:#3A463F; --ground:#EDEAE0; --ground-2:#E4E0D3;
+      --paper:#F6F4EC; --brand:#1C6B4B; --brand-deep:#0F3D2C; --mint:#3FAE7F;
+      --blue:#2C6E8E; --clay:#B8552E; --brass:#A9842F; --line:rgba(20,32,27,.14);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{background:var(--ground);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}
+    ::selection{background:var(--mint);color:var(--ink);}
+    @keyframes wde-rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+    :focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:4px;}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+    @media (max-width:900px){
+      .wde-hero{grid-template-columns:1fr!important;gap:38px!important;padding-top:40px!important;}
+      .wde-mission{grid-template-columns:1fr!important;gap:28px!important;}
+      .wde-pillars{grid-template-columns:1fr 1fr!important;}
+      .wde-do{grid-template-columns:1fr 1fr!important;}
+      .wde-foot{grid-template-columns:1fr 1fr!important;gap:30px!important;}
+    }
+    @media (max-width:640px){
+      .wde-navlinks{display:none!important;}
+      .wde-hero h1{font-size:40px!important;}
+      .wde-mission blockquote{font-size:28px!important;}
+      .wde-pillars{grid-template-columns:1fr!important;}
+      .wde-do{grid-template-columns:1fr!important;}
+      .wde-trust{grid-template-columns:1fr!important;}
+      .wde-foot{grid-template-columns:1fr!important;}
+    }
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--ground);overflow-x:hidden;">
+
+  <!-- ============ NAV ============ -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(237,234,224,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);">
+    <nav style="max-width:1240px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:30px;">
+      <a href="Home.dc.html" aria-label="WeDoEarth home" style="display:flex;align-items:center;gap:12px;margin-right:auto;">
+        <span style="width:30px;height:30px;border:1.5px solid var(--brand);border-radius:7px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:4px;">
+          <span style="background:var(--mint);border-radius:1px;"></span><span style="background:var(--brand);border-radius:1px;"></span><span style="background:var(--brand);border-radius:1px;"></span><span style="background:var(--brass);border-radius:1px;"></span>
+        </span>
+        <span style="display:flex;flex-direction:column;line-height:1;">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.01em;">WeDoEarth</span>
+          <span style="font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;margin-top:3px;">Real estate, verified</span>
+        </span>
+      </a>
+      <div style="display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;" class="wde-navlinks">
+        <a href="properties.dc.html" style-hover="color:var(--brand)">Properties</a>
+        <a href="sustainability.dc.html" style-hover="color:var(--brand)">Sustainability</a>
+        <a href="platform.dc.html" style-hover="color:var(--brand)">What we do</a>
+        <a href="platform.dc.html#builders" style-hover="color:var(--brand)">For builders</a>
+      </div>
+      <a href="kudil.dc.html#enquire" style="background:var(--brand);color:#fff;font-weight:600;font-size:14px;padding:10px 20px;border-radius:10px;box-shadow:0 6px 18px rgba(28,107,75,.22);" style-hover="background:var(--brand-deep)">Enquire</a>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section style="max-width:1240px;margin:0 auto;padding:64px 28px 30px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;" class="wde-hero">
+    <div style="animation:wde-rise .7s ease both;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;">
+        <span style="width:34px;height:1.5px;background:var(--brand);"></span>
+        <span style="font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);">Tamil Nadu · Real estate for generations</span>
+      </div>
+      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:58px;line-height:1.04;letter-spacing:-.025em;margin:0 0 22px;text-wrap:balance;">Land you can trust.<br>Homes that <span style="color:var(--brand);">give back.</span></h1>
+      <p style="font-size:18px;line-height:1.6;color:var(--ink-soft);max-width:520px;margin:0 0 32px;">We verify every title and build around nature — because a home should outlast us, and leave the earth better than we found it. Starting in Tamil Nadu.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="kudil.dc.html" style="background:var(--ink);color:var(--paper);font-weight:600;font-size:15px;padding:14px 26px;border-radius:11px;box-shadow:0 10px 26px rgba(20,32,27,.18);" style-hover="background:var(--brand-deep)">See our project: Kudil</a>
+        <a href="sustainability.dc.html" style="border:1.5px solid var(--line);font-weight:600;font-size:15px;padding:14px 26px;border-radius:11px;background:var(--paper);" style-hover="border-color:var(--brand);color:var(--brand)">Our promise to nature</a>
+      </div>
+      <div style="display:flex;gap:30px;margin-top:42px;padding-top:28px;border-top:1px solid var(--line);">
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:26px;">1</div><div style="font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;">Live project</div></div>
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:26px;">100%</div><div style="font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;">Title verified</div></div>
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:26px;">2050</div><div style="font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;">Built for</div></div>
+      </div>
+    </div>
+
+    <!-- Now selling card -->
+    <div style="animation:wde-rise .7s .12s ease both;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(20,32,27,.35);">
+      <div style="position:relative;height:248px;background:repeating-linear-gradient(135deg,#dcd6c4,#dcd6c4 11px,#e2ddce 11px,#e2ddce 22px);display:flex;align-items:flex-end;justify-content:space-between;padding:16px;">
+        <span style="position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:7px;background:var(--brand);color:#fff;font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:8px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 3px rgba(63,174,127,.35);"></span>Now selling</span>
+        <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--ink-soft);background:rgba(246,244,236,.7);padding:5px 9px;border-radius:7px;">[ courtyard villa render ]</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--paper);font-size:12px;font-weight:500;padding:7px 12px;border-radius:20px;">📍 Navalur · OMR</span>
+      </div>
+      <div style="padding:24px 24px 26px;">
+        <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:23px;margin:0 0 5px;letter-spacing:-.01em;">Kudil — courtyard villas</h3>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 18px;">by Natarajan Estates · <strong style="color:var(--brand);">2 villas available</strong></p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <span style="font-family:'IBM Plex Mono';font-size:11px;background:var(--ground-2);padding:7px 11px;border-radius:8px;">4 BHK</span>
+          <span style="font-family:'IBM Plex Mono';font-size:11px;background:var(--ground-2);padding:7px 11px;border-radius:8px;">2,662 sqft</span>
+          <span style="font-family:'IBM Plex Mono';font-size:11px;background:var(--ground-2);padding:7px 11px;border-radius:8px;">₹2.45 Cr*</span>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <a href="kudil.dc.html" style="flex:1;text-align:center;background:var(--brand);color:#fff;font-weight:600;font-size:14px;padding:12px;border-radius:10px;" style-hover="background:var(--brand-deep)">View project</a>
+          <a href="kudil.dc.html#enquire" style="flex:1;text-align:center;border:1.5px solid var(--line);font-weight:600;font-size:14px;padding:12px;border-radius:10px;" style-hover="border-color:var(--brand);color:var(--brand)">Book a visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISSION BAND ============ -->
+  <section style="background:var(--brand-deep);color:var(--paper);margin-top:48px;">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 28px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:34px;">
+        <span style="width:34px;height:1.5px;background:var(--mint);"></span>
+        <span style="font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);">Why we exist</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start;" class="wde-mission">
+        <blockquote style="margin:0;font-family:'Space Grotesk';font-weight:600;font-size:38px;line-height:1.18;letter-spacing:-.02em;text-wrap:balance;">Real estate isn't just selling land — it's creating a <span style="color:var(--mint);">sustainable livelihood</span> for the generations to come.</blockquote>
+        <p style="font-size:16px;line-height:1.7;color:rgba(246,244,236,.78);margin:8px 0 0;">We do two things others don't: we <strong style="color:var(--paper);">prove the ground is clean</strong> — verified title, real approvals, no disputes — and we <strong style="color:var(--paper);">build in a way that gives back</strong> to nature. A home should be an inheritance, not a liability.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;" class="wde-pillars">
+        <div style="border:1px solid rgba(246,244,236,.16);border-radius:14px;padding:22px;background:rgba(246,244,236,.03);">
+          <div style="font-family:'IBM Plex Mono';font-size:11px;color:var(--mint);letter-spacing:.1em;margin-bottom:14px;">01</div>
+          <div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px;">Design with nature</div>
+          <p style="font-size:13.5px;line-height:1.55;color:rgba(246,244,236,.66);margin:0;">Courtyards, light and cross-ventilation over concrete.</p>
+        </div>
+        <div style="border:1px solid rgba(246,244,236,.16);border-radius:14px;padding:22px;background:rgba(246,244,236,.03);">
+          <div style="font-family:'IBM Plex Mono';font-size:11px;color:var(--mint);letter-spacing:.1em;margin-bottom:14px;">02</div>
+          <div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px;">Protect water & green</div>
+          <p style="font-size:13.5px;line-height:1.55;color:rgba(246,244,236,.66);margin:0;">Keep the lakes, the trees and clean groundwater.</p>
+        </div>
+        <div style="border:1px solid rgba(246,244,236,.16);border-radius:14px;padding:22px;background:rgba(246,244,236,.03);">
+          <div style="font-family:'IBM Plex Mono';font-size:11px;color:var(--mint);letter-spacing:.1em;margin-bottom:14px;">03</div>
+          <div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px;">Lighter on energy</div>
+          <p style="font-size:13.5px;line-height:1.55;color:rgba(246,244,236,.66);margin:0;">Cool roofing, solar-ready homes, efficient fixtures.</p>
+        </div>
+        <div style="border:1px solid rgba(246,244,236,.16);border-radius:14px;padding:22px;background:rgba(246,244,236,.03);">
+          <div style="font-family:'IBM Plex Mono';font-size:11px;color:var(--mint);letter-spacing:.1em;margin-bottom:14px;">04</div>
+          <div style="font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px;">Responsible land</div>
+          <p style="font-size:13.5px;line-height:1.55;color:rgba(246,244,236,.66);margin:0;">Verify title and approvals before a thing is listed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DO ============ -->
+  <section style="max-width:1240px;margin:0 auto;padding:84px 28px 30px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px;flex-wrap:wrap;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <span style="width:34px;height:1.5px;background:var(--brand);"></span>
+          <span style="font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);">What we do</span>
+        </div>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0;">Everything around the land — verified.</h2>
+      </div>
+      <a href="platform.dc.html" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);" style-hover="color:var(--brand-deep)">See the full platform →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="wde-do">
+      <a href="properties.dc.html" style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;min-height:188px;transition:transform .25s ease,box-shadow .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(20,32,27,.4)">
+        <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--brand);letter-spacing:.1em;margin-bottom:auto;">BROWSE</span>
+        <div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:18px 0 6px;">Browse properties</div>
+        <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:0;">Verified projects across Tamil Nadu, in one place.</p>
+      </a>
+      <a href="platform.dc.html#verify" style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;min-height:188px;transition:transform .25s ease,box-shadow .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(20,32,27,.4)">
+        <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--brand);letter-spacing:.1em;margin-bottom:auto;">VERIFY</span>
+        <div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:18px 0 6px;">Verify a title</div>
+        <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:0;">Title due-diligence before you ever pay a rupee.</p>
+      </a>
+      <a href="platform.dc.html#manage" style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;min-height:188px;transition:transform .25s ease,box-shadow .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(20,32,27,.4)">
+        <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--brand);letter-spacing:.1em;margin-bottom:auto;">MANAGE</span>
+        <div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:18px 0 6px;">Manage property</div>
+        <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:0;">Tenants, rent and upkeep, handled in one dashboard.</p>
+      </a>
+      <a href="platform.dc.html#invest" style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;min-height:188px;transition:transform .25s ease,box-shadow .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(20,32,27,.4)">
+        <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--brand);letter-spacing:.1em;margin-bottom:auto;">INVEST</span>
+        <div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:18px 0 6px;">Invest fractionally</div>
+        <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:0;">Via SEBI-registered SM REIT partners. Risks apply.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <section style="max-width:1240px;margin:0 auto;padding:40px 28px 84px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;" class="wde-trust">
+      <div style="background:var(--ground-2);padding:30px 28px;">
+        <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;">One live project</div>
+        <p style="font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin:0;">We'd rather do one project right than list a hundred we can't stand behind.</p>
+      </div>
+      <div style="background:var(--ground-2);padding:30px 28px;">
+        <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;">Verified-first</div>
+        <p style="font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin:0;">Title, approvals and disputes checked before anything reaches you.</p>
+      </div>
+      <div style="background:var(--ground-2);padding:30px 28px;">
+        <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;">Built for 2050</div>
+        <p style="font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin:0;">Homes designed to age well — for your family and the land around them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section style="background:var(--brand-deep);color:var(--paper);position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(246,244,236,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(246,244,236,.05) 1px,transparent 1px);background-size:46px 46px;opacity:.6;"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:72px 28px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;">
+      <div>
+        <div style="font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);margin-bottom:14px;">Navalur · OMR, Chennai</div>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:40px;letter-spacing:-.02em;margin:0;text-wrap:balance;">Looking for a home at Navalur?</h2>
+      </div>
+      <a href="kudil.dc.html#enquire" style="background:var(--mint);color:var(--ink);font-weight:700;font-size:16px;padding:17px 32px;border-radius:12px;white-space:nowrap;box-shadow:0 14px 32px rgba(63,174,127,.3);" style-hover="background:#fff">Book a visit to Kudil</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:var(--ink);color:rgba(246,244,236,.7);">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 28px 30px;">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;" class="wde-foot">
+        <div>
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px;">
+            <span style="width:28px;height:28px;border:1.5px solid var(--mint);border-radius:7px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:3.5px;">
+              <span style="background:var(--mint);border-radius:1px;"></span><span style="background:rgba(246,244,236,.5);border-radius:1px;"></span><span style="background:rgba(246,244,236,.5);border-radius:1px;"></span><span style="background:var(--brass);border-radius:1px;"></span>
+            </span>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:17px;color:var(--paper);">WeDoEarth</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.6;max-width:280px;margin:0 0 14px;">Land you can trust. Homes that give back. Real estate, verified — starting in Tamil Nadu.</p>
+          <span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;color:rgba(246,244,236,.45);">wedoearth.com</span>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,236,.45);margin-bottom:16px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+            <a href="properties.dc.html" style-hover="color:var(--mint)">Properties</a>
+            <a href="kudil.dc.html" style-hover="color:var(--mint)">Kudil</a>
+            <a href="sustainability.dc.html" style-hover="color:var(--mint)">Sustainability</a>
+            <a href="platform.dc.html" style-hover="color:var(--mint)">What we do</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,236,.45);margin-bottom:16px;">Company</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+            <a href="platform.dc.html#builders" style-hover="color:var(--mint)">For builders</a>
+            <a href="sustainability.dc.html" style-hover="color:var(--mint)">Our promise</a>
+            <a href="kudil.dc.html#enquire" style-hover="color:var(--mint)">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,236,.45);margin-bottom:16px;">Trust</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+            <a href="platform.dc.html#verify" style-hover="color:var(--mint)">Title verification</a>
+            <a href="platform.dc.html" style-hover="color:var(--mint)">Compliance · RERA</a>
+            <a href="platform.dc.html" style-hover="color:var(--mint)">Privacy · DPDP</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(246,244,236,.12);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12px;color:rgba(246,244,236,.45);">
+        <span>© 2026 WeDoEarth. Real estate, verified.</span>
+        <span style="font-family:'IBM Plex Mono';font-size:11px;">Indicative prototype — listings sourced from developers, subject to change.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
