@@ -264,50 +264,9 @@ try {
     respond(false, '', 'We could not save your enquiry right now. Please email us directly.');
 }
 
-// ── Send email notification ──────────────────────────────────────────────────
-// stripCrlf() is applied to every value that goes into an email header to
-// prevent header injection. Plain-text body values don't need it.
-
-$emailBody = implode("\n", [
-    "New lead #" . $leadId . " received on WeDoEarth.",
-    "",
-    "Name      : $name",
-    "Email     : $email",
-    "Phone     : $phone",
-    "Unit      : " . ($unit     ?: 'Any available'),
-    "Purpose   : " . ($purpose  ?: 'Not specified'),
-    "Budget    : " . ($budget   ?: 'Not specified'),
-    "Timeline  : " . ($timeline ?: 'Not specified'),
-    "Message   : " . ($message  ?: '—'),
-    "",
-    "DPDP Consent: Yes",
-    "IP Address  : $ip",
-    "Submitted   : " . date('Y-m-d H:i:s T'),
-    "",
-    "---",
-    "WeDoEarth — Real estate, verified.",
-    "DO NOT reply to this automated message.",
-]);
-
-// CRLF stripped from header values to prevent injection
-$safeFrom    = stripCrlf(NOTIFY_FROM);
-$safeName    = stripCrlf($name);
-$safeEmail   = stripCrlf($email);
-$replyTo     = ($safeEmail !== '') ? "$safeName <$safeEmail>" : $safeFrom;
-
-$headers = implode("\r\n", [
-    'From: WeDoEarth Leads <' . $safeFrom . '>',
-    'Reply-To: ' . $replyTo,
-    'X-Mailer: PHP/' . phpversion(),
-    'Content-Type: text/plain; charset=UTF-8',
-    'MIME-Version: 1.0',
-]);
-
-$sent = mail(NOTIFY_TO, NOTIFY_SUBJECT . ' #' . $leadId, $emailBody, $headers);
-
-if (!$sent) {
-    error_log('[WeDoEarth] mail() failed for lead #' . $leadId);
-}
+// ── Email notification disabled — re-enable once server SMTP is configured ───
+// $emailBody = ...
+// mail(NOTIFY_TO, NOTIFY_SUBJECT . ' #' . $leadId, $emailBody, $headers);
 
 // ── Success ──────────────────────────────────────────────────────────────────
 
