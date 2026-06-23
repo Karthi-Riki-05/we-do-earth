@@ -1,0 +1,82 @@
+# WeDoEarth — Apache / Hostinger configuration
+
+Options -Indexes
+ServerSignature Off
+
+# ── Friendly URLs ─────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS (enable once SSL is active on Hostinger)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # www → non-www redirect (adjust to taste)
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Default index
+  DirectoryIndex index.php
+
+  # Block direct access to includes/
+  RewriteRule ^includes/ - [F,L]
+
+  # Block direct browser navigation to /api/ — PHP also checks X-Requested-With,
+  # but this Apache layer prevents PHP from running at all for non-AJAX requests.
+  RewriteCond %{HTTP:X-Requested-With} !XMLHttpRequest
+  RewriteRule ^api/ - [F,L]
+</IfModule>
+
+# ── Security headers ──────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # Content Security Policy — tighten further once on HTTPS
+  Header always set Content-Security-Policy "\
+    default-src 'self'; \
+    script-src 'self' 'unsafe-inline'; \
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+    font-src 'self' https://fonts.gstatic.com; \
+    img-src 'self' data:; \
+    frame-src https://www.youtube.com; \
+    connect-src 'self'; \
+    form-action 'self';"
+
+  # Cache static assets
+  <FilesMatch "\.(css|js|woff2?|ttf|otf|svg|png|jpg|jpeg|gif|ico|webp)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # No cache for PHP
+  <FilesMatch "\.php$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ── PHP hardening ─────────────────────────────────────────────────────────────
+<IfModule mod_php.c>
+  php_flag display_errors Off
+  php_flag log_errors On
+  php_value error_log /home/username/logs/php_error.log
+  php_flag expose_php Off
+  php_value session.cookie_httponly 1
+  php_value session.cookie_samesite Strict
+  # php_value session.cookie_secure 1   # enable once HTTPS is live
+</IfModule>
+
+# ── Compression ──────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json text/plain
+</IfModule>
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json text/plain
+</IfModule>
+
+# ── Deny access to sensitive files ────────────────────────────────────────────
+<FilesMatch "(^\.env|composer\.(json|lock)|package(-lock)?\.json|schema\.sql|\.git)">
+  Require all denied
+</FilesMatch>

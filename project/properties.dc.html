@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#14201B; --ink-soft:#3A463F; --ground:#EDEAE0; --ground-2:#E4E0D3;
+      --paper:#F6F4EC; --brand:#1C6B4B; --brand-deep:#0F3D2C; --mint:#3FAE7F;
+      --blue:#2C6E8E; --clay:#B8552E; --brass:#A9842F; --line:rgba(20,32,27,.14);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{background:var(--ground);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}
+    ::selection{background:var(--mint);color:var(--ink);}
+    @keyframes wde-rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+    :focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:4px;}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+    @media (max-width:900px){
+      .p-grid{grid-template-columns:1fr 1fr!important;}
+      .p-foot{grid-template-columns:1fr 1fr!important;}
+    }
+    @media (max-width:640px){
+      .wde-navlinks{display:none!important;}
+      .p-grid{grid-template-columns:1fr!important;}
+      .p-foot{grid-template-columns:1fr!important;}
+      .p-filters{flex-direction:column!important;align-items:stretch!important;}
+    }
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--ground);overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(237,234,224,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);">
+    <nav style="max-width:1240px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:30px;">
+      <a href="Home.dc.html" aria-label="WeDoEarth home" style="display:flex;align-items:center;gap:12px;margin-right:auto;">
+        <span style="width:30px;height:30px;border:1.5px solid var(--brand);border-radius:7px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:4px;">
+          <span style="background:var(--mint);border-radius:1px;"></span><span style="background:var(--brand);border-radius:1px;"></span><span style="background:var(--brand);border-radius:1px;"></span><span style="background:var(--brass);border-radius:1px;"></span>
+        </span>
+        <span style="display:flex;flex-direction:column;line-height:1;">
+          <span style="font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.01em;">WeDoEarth</span>
+          <span style="font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;margin-top:3px;">Real estate, verified</span>
+        </span>
+      </a>
+      <div style="display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;" class="wde-navlinks">
+        <a href="properties.dc.html" style="color:var(--brand);">Properties</a>
+        <a href="sustainability.dc.html" style-hover="color:var(--brand)">Sustainability</a>
+        <a href="platform.dc.html" style-hover="color:var(--brand)">What we do</a>
+        <a href="platform.dc.html#builders" style-hover="color:var(--brand)">For builders</a>
+      </div>
+      <a href="kudil.dc.html#enquire" style="background:var(--brand);color:#fff;font-weight:600;font-size:14px;padding:10px 20px;border-radius:10px;box-shadow:0 6px 18px rgba(28,107,75,.22);" style-hover="background:var(--brand-deep)">Enquire</a>
+    </nav>
+  </header>
+
+  <!-- HEADER -->
+  <section style="max-width:1240px;margin:0 auto;padding:60px 28px 30px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <span style="width:34px;height:1.5px;background:var(--brand);"></span>
+      <span style="font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);">Tamil Nadu · {{ liveCount }} verified · scaling</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;" class="p-head">
+      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:48px;line-height:1.05;letter-spacing:-.025em;margin:0;text-wrap:balance;">Verified projects, <span style="color:var(--brand);">one place.</span></h1>
+      <p style="font-size:16px;line-height:1.65;color:var(--ink-soft);margin:0;">We review the title, the approvals and the disputes on every project before it earns a card here. Fewer listings, more certainty.</p>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section style="max-width:1240px;margin:0 auto;padding:8px 28px 4px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);" class="p-filters">
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-right:4px;">Type</span>
+          <sc-for list="{{ types }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.pick }}" style="background:{{ t.bg }};color:{{ t.fg }};border:1px solid {{ t.bd }};font-size:13px;font-weight:500;padding:7px 14px;border-radius:20px;cursor:pointer;">{{ t.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-right:4px;">Status</span>
+          <sc-for list="{{ statuses }}" as="s" hint-placeholder-count="3">
+            <button onClick="{{ s.pick }}" style="background:{{ s.bg }};color:{{ s.fg }};border:1px solid {{ s.bd }};font-size:13px;font-weight:500;padding:7px 14px;border-radius:20px;cursor:pointer;">{{ s.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <span style="font-family:'IBM Plex Mono';font-size:12px;color:var(--ink-soft);">{{ shownCount }} shown</span>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section style="max-width:1240px;margin:0 auto;padding:28px 28px 30px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="p-grid">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
+        <a href="{{ c.href }}" style="background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;opacity:{{ c.opacity }};transition:transform .25s ease,box-shadow .25s ease;" style-hover="transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(20,32,27,.45)">
+          <div style="position:relative;height:188px;background:{{ c.thumb }};display:flex;align-items:flex-end;padding:14px;">
+            <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.06em;background:{{ c.badgeBg }};color:{{ c.badgeFg }};padding:5px 10px;border-radius:7px;"><span style="width:5px;height:5px;border-radius:50%;background:{{ c.badgeDot }};"></span>{{ c.verifyLabel }}</span>
+            <span style="position:absolute;top:14px;right:14px;font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.06em;background:var(--ink);color:var(--paper);padding:5px 10px;border-radius:7px;">{{ c.config }}</span>
+            <span style="font-family:'IBM Plex Mono';font-size:10.5px;color:var(--ink-soft);background:rgba(246,244,236,.72);padding:5px 9px;border-radius:7px;">{{ c.thumbLabel }}</span>
+          </div>
+          <div style="padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;">
+            <div style="font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:6px;margin-bottom:7px;">📍 {{ c.locality }}</div>
+            <h3 style="font-family:'Space Grotesk';font-weight:700;font-size:21px;margin:0 0 3px;">{{ c.name }}</h3>
+            <p style="font-size:13px;color:var(--ink-soft);margin:0 0 16px;">{{ c.developer }}</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+              <span style="font-family:'IBM Plex Mono';font-size:10.5px;background:var(--ground-2);padding:6px 10px;border-radius:7px;">{{ c.builtup }}</span>
+              <span style="font-family:'IBM Plex Mono';font-size:10.5px;background:{{ c.pillBg }};color:{{ c.pillFg }};padding:6px 10px;border-radius:7px;">{{ c.statusLabel }}</span>
+            </div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding-top:15px;border-top:1px solid var(--line);">
+              <div><div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--ink-soft);letter-spacing:.06em;">{{ c.priceNote }}</div><div style="font-family:'Space Grotesk';font-weight:700;font-size:19px;margin-top:2px;">{{ c.price }}</div></div>
+              <span style="font-family:'IBM Plex Mono';font-size:12px;color:{{ c.linkColor }};font-weight:500;">{{ c.cta }}</span>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:60px 20px;color:var(--ink-soft);font-size:15px;">No projects match these filters yet — try widening them.</div>
+    </sc-if>
+  </section>
+
+  <!-- HAVE A PROJECT STRIP -->
+  <section style="max-width:1240px;margin:0 auto;padding:20px 28px 80px;">
+    <div style="background:var(--brand-deep);color:var(--paper);border-radius:18px;padding:44px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden;">
+      <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(246,244,236,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(246,244,236,.05) 1px,transparent 1px);background-size:40px 40px;opacity:.6;"></div>
+      <div style="position:relative;">
+        <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);margin-bottom:12px;">For builders & owners</div>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:30px;letter-spacing:-.02em;margin:0;text-wrap:balance;">Have a project to sell?</h2>
+        <p style="font-size:15px;color:rgba(246,244,236,.78);margin:10px 0 0;max-width:440px;">List with us — we verify the title, map the parcels, and send you qualified buyer enquiries.</p>
+      </div>
+      <a href="platform.dc.html#builders" style="position:relative;background:var(--mint);color:var(--ink);font-weight:700;font-size:15px;padding:15px 28px;border-radius:12px;white-space:nowrap;" style-hover="background:#fff">List a project →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--ink);color:rgba(246,244,236,.7);">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 28px 30px;">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;" class="p-foot">
+        <div>
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px;">
+            <span style="width:28px;height:28px;border:1.5px solid var(--mint);border-radius:7px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:3.5px;">
+              <span style="background:var(--mint);border-radius:1px;"></span><span style="background:rgba(246,244,236,.5);border-radius:1px;"></span><span style="background:rgba(246,244,236,.5);border-radius:1px;"></span><span style="background:var(--brass);border-radius:1px;"></span>
+            </span>
+            <span style="font-family:'Space Grotesk';font-weight:700;font-size:17px;color:var(--paper);">WeDoEarth</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.6;max-width:280px;margin:0 0 14px;">Land you can trust. Homes that give back. Real estate, verified — starting in Tamil Nadu.</p>
+          <span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;color:rgba(246,244,236,.45);">wedoearth.com</span>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,236,.45);margin-bottom:16px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+            <a href="properties.dc.html" style-hover="color:var(--mint)">Properties</a>
+            <a href="kudil.dc.html" style-hover="color:var(--mint)">Kudil</a>
+            <a href="sustainability.dc.html" style-hover="color:var(--mint)">Sustainability</a>
+            <a href="platform.dc.html" style-hover="color:var(--mint)">What we do</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,236,.45);margin-bottom:16px;">Company</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+            <a href="platform.dc.html#builders" style-hover="color:var(--mint)">For builders</a>
+            <a href="sustainability.dc.html" style-hover="color:var(--mint)">Our promise</a>
+            <a href="kudil.dc.html#enquire" style-hover="color:var(--mint)">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,236,.45);margin-bottom:16px;">Trust</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+            <a href="platform.dc.html#verify" style-hover="color:var(--mint)">Title verification</a>
+            <a href="platform.dc.html" style-hover="color:var(--mint)">Compliance · RERA</a>
+            <a href="platform.dc.html" style-hover="color:var(--mint)">Privacy · DPDP</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(246,244,236,.12);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12px;color:rgba(246,244,236,.45);">
+        <span>© 2026 WeDoEarth. Real estate, verified.</span>
+        <span style="font-family:'IBM Plex Mono';font-size:11px;">Indicative prototype — listings sourced from developers, subject to change.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // PROJECTS array = stand-in for the database / CMS collection.
+  // Adding a record here makes a card appear AND (when wired) its own /properties/{slug} page.
+  PROJECTS = [
+    {
+      slug:'kudil', name:'Kudil', developer:'by Natarajan Estates',
+      type:'villa', status:'available', verification:'verified',
+      locality:'Navalur · OMR, Chennai', config:'4 BHK', builtup:'2,662 sqft',
+      units:'2 villas available', price:'₹2.45 Cr*', priceNote:'FROM · BEFORE GST',
+      thumbLabel:'[ courtyard villa render ]', href:'kudil.dc.html', live:true
+    },
+    {
+      slug:'maram', name:'Maram', developer:'Details soon',
+      type:'plot', status:'upcoming', verification:'verifying',
+      locality:'Sholinganallur · OMR', config:'PLOTS', builtup:'1,200–2,400 sqft',
+      units:'Verifying title', price:'On request', priceNote:'GUIDELINE-LINKED',
+      thumbLabel:'[ details soon ]', href:'properties.dc.html', live:false
+    },
+    {
+      slug:'angadi', name:'Angadi', developer:'Details soon',
+      type:'commercial', status:'upcoming', verification:'verifying',
+      locality:'Guindy · Chennai', config:'COMMERCIAL', builtup:'Mixed-use',
+      units:'Verifying title', price:'On request', priceNote:'GUIDELINE-LINKED',
+      thumbLabel:'[ details soon ]', href:'properties.dc.html', live:false
+    }
+  ];
+
+  state = { type:'all', status:'any' };
+
+  setType = (t) => () => this.setState({ type:t });
+  setStatus = (s) => () => this.setState({ status:s });
+
+  filtered() {
+    return this.PROJECTS.filter(p =>
+      (this.state.type === 'all' || p.type === this.state.type) &&
+      (this.state.status === 'any' || p.status === this.state.status)
+    );
+  }
+
+  chip(active){
+    return active
+      ? { bg:'var(--brand)', fg:'#fff', bd:'var(--brand)' }
+      : { bg:'var(--paper)', fg:'var(--ink-soft)', bd:'var(--line)' };
+  }
+
+  renderVals() {
+    const list = this.filtered();
+    const typeDefs = [['all','All'],['villa','Villas'],['plot','Plots'],['commercial','Commercial']];
+    const statusDefs = [['any','Any'],['available','Available'],['upcoming','Upcoming']];
+
+    const cards = list.map(p => {
+      const verified = p.verification === 'verified';
+      const avail = p.status === 'available';
+      return {
+        href:p.href, name:p.name, developer:p.developer, locality:p.locality,
+        config:p.config, builtup:p.builtup, price:p.price, priceNote:p.priceNote,
+        thumbLabel:p.thumbLabel,
+        opacity: p.live ? 1 : 0.62,
+        thumb: p.live
+          ? 'repeating-linear-gradient(135deg,#dcd6c4,#dcd6c4 11px,#e2ddce 11px,#e2ddce 22px)'
+          : 'repeating-linear-gradient(135deg,#e2ddce,#e2ddce 11px,#e7e3d6 11px,#e7e3d6 22px)',
+        verifyLabel: verified ? 'TITLE VERIFIED' : 'VERIFYING',
+        badgeBg: verified ? 'var(--brass)' : 'var(--ground-2)',
+        badgeFg: verified ? '#fff' : 'var(--ink-soft)',
+        badgeDot: verified ? '#fff' : 'var(--brass)',
+        statusLabel: avail ? 'AVAILABLE' : 'UPCOMING',
+        pillBg: avail ? 'rgba(63,174,127,.18)' : 'var(--ground-2)',
+        pillFg: avail ? 'var(--brand)' : 'var(--ink-soft)',
+        cta: p.live ? 'View project →' : 'Details soon',
+        linkColor: p.live ? 'var(--brand)' : 'var(--ink-soft)'
+      };
+    });
+
+    return {
+      types: typeDefs.map(([k,label]) => ({ label, ...this.chip(this.state.type===k), pick:this.setType(k) })),
+      statuses: statusDefs.map(([k,label]) => ({ label, ...this.chip(this.state.status===k), pick:this.setStatus(k) })),
+      cards,
+      empty: cards.length === 0,
+      shownCount: cards.length + (cards.length === 1 ? ' project' : ' projects'),
+      liveCount: this.PROJECTS.filter(p=>p.live).length + ' live'
+    };
+  }
+}
+</script>
+</body>
+</html>

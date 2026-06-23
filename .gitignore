@@ -1,0 +1,31 @@
+# ── Sensitive / environment ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Claude Code internal files ────────────────────────────────────────────────
+.claude/
+
+# ── User uploads (runtime files, not source) ─────────────────────────────────
+project/uploads/
+project/screenshots/
+
+# ── OS / editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# ── XAMPP / PHP logs ──────────────────────────────────────────────────────────
+*.log
+error_log
+
+# ── Composer (if added later) ─────────────────────────────────────────────────
+/vendor/
+composer.lock
+
+# ── Node (if build tools added later) ────────────────────────────────────────
+node_modules/
+npm-debug.log*
